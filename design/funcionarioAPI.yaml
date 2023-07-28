@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: API de Gerenciamento de Funcionários
+  version: 1.0.0
+  description: API para adicionar, obter, atualizar e excluir funcionários.
+
+paths:
+  /funcionarios:
+    post:
+      summary: Adicionar novo funcionário
+      operationId: adicionarFuncionario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Funcionario'
+      responses:
+        '200':
+          description: Funcionário adicionado com sucesso
+        '400':
+          description: Erro ao adicionar o funcionário
+
+  /funcionarios/{id}:
+    get:
+      summary: Obter detalhes de um funcionário
+      operationId: obterFuncionario
+      parameters:
+        - name: id
+          in: path
+          description: ID do funcionário
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalhes do funcionário
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Funcionario'
+        '404':
+          description: Funcionário não encontrado
+
+    put:
+      summary: Atualizar detalhes de um funcionário existente
+      operationId: atualizarFuncionario
+      parameters:
+        - name: id
+          in: path
+          description: ID do funcionário
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Funcionario'
+      responses:
+        '200':
+          description: Funcionário atualizado com sucesso
+        '400':
+          description: Erro ao atualizar o funcionário
+        '404':
+          description: Funcionário não encontrado
+
+    delete:
+      summary: Excluir funcionário existente
+      operationId: excluirFuncionario
+      parameters:
+        - name: id
+          in: path
+          description: ID do funcionário
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Funcionário excluído com sucesso
+        '404':
+          description: Funcionário não encontrado
+
+components:
+  schemas:
+    Funcionario:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        designacao:
+          type: string
+        salario:
+          type: number
+        numeroTelefone:
+          type: string
+        endereco:
+          type: string
+      required:
+        - id
+        - nome
+        - designacao
+        - salario
+        - numeroTelefone
+        - endereco
