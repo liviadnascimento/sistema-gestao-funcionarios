@@ -1,6 +1,4 @@
-# sistema-gestao-funcionarios
-
-**Projeto de Gestão de Funcionários**
+# Projeto de Gestão de Funcionários
 
 Este é um projeto simples de gerenciamento de funcionários desenvolvido em Java. O objetivo deste projeto é fornecer um sistema para adicionar, consultar, atualizar e excluir funcionários.
 
