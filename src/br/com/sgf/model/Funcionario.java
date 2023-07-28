@@ -7,8 +7,9 @@ public class Funcionario {
     private String designacao;
     private double salario;
     private String numeroTelefone;
-    private String endereco;
-    public Funcionario(int id, String nome, String designacao, double salario, String numeroTelefone, String endereco) {
+    private Endereco endereco;
+
+    public Funcionario(int id, String nome, String designacao, double salario, String numeroTelefone, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.designacao = designacao;
@@ -57,11 +58,11 @@ public class Funcionario {
         this.numeroTelefone = numeroTelefone;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -73,7 +74,7 @@ public class Funcionario {
                 ", designacao='" + designacao + '\'' +
                 ", salario=" + salario +
                 ", numeroTelefone='" + numeroTelefone + '\'' +
-                ", endereco='" + endereco + '\'' +
+                ", endereco=" + endereco +
                 '}';
     }
 }
