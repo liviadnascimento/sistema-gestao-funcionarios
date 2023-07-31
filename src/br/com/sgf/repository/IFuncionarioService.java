@@ -9,11 +9,11 @@ import br.com.sgf.model.Funcionario;
  */
 public interface IFuncionarioService {
 
-    void adicionarFuncionario(Funcionario funcionario);
+    int adicionarFuncionario(Funcionario funcionario);
 
     Funcionario obterFuncionario(int id);
 
-    void atualizarFuncionario(Funcionario funcionario);
+    void atualizarFuncionario(int id, Funcionario novoFuncionario);
 
     void excluirFuncionario(int id);
 }

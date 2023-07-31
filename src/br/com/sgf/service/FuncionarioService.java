@@ -18,19 +18,28 @@ public class FuncionarioService implements IFuncionarioService {
         funcionarios = new HashMap<>();
     }
 
-    public void adicionarFuncionario(Funcionario funcionario) {
+    public int adicionarFuncionario(Funcionario funcionario) {
         funcionarios.put(funcionario.getId(), funcionario);
+        return funcionario.getId();
+    }
+
+    public void atualizarFuncionario(int id, Funcionario novoFuncionario) {
+        if (funcionarios.containsKey(id)) {
+            funcionarios.put(id, novoFuncionario);
+        } else {
+            System.out.println("Funcionário com ID " + id + " não encontrado.");
+        }
+    }
+
+    public void excluirFuncionario(int id) {
+        if (funcionarios.containsKey(id)) {
+            funcionarios.remove(id);
+        } else {
+            System.out.println("Funcionário com ID " + id + " não encontrado.");
+        }
     }
 
     public Funcionario obterFuncionario(int id) {
         return funcionarios.get(id);
-    }
-
-    public void atualizarFuncionario(Funcionario funcionario) {
-        funcionarios.put(funcionario.getId(), funcionario);
-    }
-
-    public void excluirFuncionario(int id) {
-        funcionarios.remove(id);
     }
 }

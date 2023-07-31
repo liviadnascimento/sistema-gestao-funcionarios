@@ -31,26 +31,28 @@ Java 8 ou superior
 
 **Exemplo de Uso**
 
-`public static void main(String[] args) {`
+public static void main(String[] args) {
 
-
+        // Cenário de inclusão de funcionário 1
         Endereco endereco1 = new Endereco(1, "Rua Roberto Selmi Dei", "740", "Bairro Jd. Sta. Margarida", "Cidade São Paulo", "Estado SP", "04931-010");
+        Funcionario funcionario1 = new Funcionario(1, "João", "Analista", 3500.0, "11987654321", endereco1);
+
+        incluirFuncionario(funcionario1);
+
+        // Cenário de inclusão de funcionário 2
         Endereco endereco2 = new Endereco(2, "Rua Itaquaxiara", "11", "Bairro Pq. Sto. Amaro", "Cidade São Paulo", "Estado SP", "04931-020");
+        Funcionario funcionario2 = new Funcionario(2, "Maria", "Analista", 3500.0, "11992345678", endereco2);
 
-        Funcionario funcionario1 = new Funcionario(1, "João", "Analista", 3500.0, "111111111", endereco1);
-        Funcionario funcionario2 = new Funcionario(2, "Maria", "Gerente", 5000.0, "222222222", endereco2);
+        incluirFuncionario(funcionario2);
 
-        System.out.println("Detalhes do funcionário 1:");
-        System.out.println(funcionario1);
+        Endereco enderecoNovo = new Endereco(3, "Rua novo", "123", "Bairro X", "Cidade Y", "Estado Z", "12345-678");
+        funcionario2.setNome("Maria Francisca");
+        funcionario2.setEndereco(enderecoNovo);
+        alterarDadosFuncionario(2,funcionario2);
 
-        System.out.println("\nDetalhes do funcionário 2:");
-        System.out.println(funcionario2);
+        excluirFuncionario(2);
 
-        funcionario1.setSalario(4000.0);
-
-        System.out.println("\nDetalhes atualizados do funcionário 1:");
-        System.out.println(funcionario1);
-`}`
+    }
 
 **Considerações**
 
