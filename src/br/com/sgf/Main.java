@@ -7,6 +7,7 @@ import br.com.sgf.service.FuncionarioService;
 public class Main {
 
     static FuncionarioService funcionarioService = new FuncionarioService();
+
     public static void main(String[] args) {
 
         // Cenário de inclusão de funcionário 1
@@ -24,7 +25,7 @@ public class Main {
         Endereco enderecoNovo = new Endereco(3, "Rua novo", "123", "Bairro X", "Cidade Y", "Estado Z", "12345-678");
         funcionario2.setNome("Maria Francisca");
         funcionario2.setEndereco(enderecoNovo);
-        alterarDadosFuncionario(2,funcionario2);
+        atualizarDadosFuncionario(2, funcionario2);
 
         excluirFuncionario(2);
 
@@ -38,30 +39,10 @@ public class Main {
         System.out.println(funcionarioService.obterFuncionario(id));
     }
 
-    private static void alterarDadosFuncionario(int id, Funcionario dadosFuncionario) {
-        Funcionario funcionario = funcionarioService.obterFuncionario(id);
-
-        if (funcionario != null) {
-            funcionario.setNome(dadosFuncionario.getNome() != null && !dadosFuncionario.getNome().isEmpty()
-                    ? dadosFuncionario.getNome() : funcionario.getNome());
-
-            funcionario.setDesignacao(dadosFuncionario.getDesignacao() != null && !dadosFuncionario.getDesignacao().isEmpty()
-                    ? dadosFuncionario.getDesignacao() : funcionario.getDesignacao());
-
-            funcionario.setSalario(dadosFuncionario.getSalario() != 0.0
-                    ? dadosFuncionario.getSalario() : funcionario.getSalario());
-
-            funcionario.setNumeroTelefone(dadosFuncionario.getNumeroTelefone() != null && !dadosFuncionario.getNumeroTelefone().isEmpty()
-                    ? dadosFuncionario.getNumeroTelefone() : funcionario.getNumeroTelefone());
-
-            funcionario.setEndereco(dadosFuncionario.getEndereco() != null
-                    ? dadosFuncionario.getEndereco() : funcionario.getEndereco());
-
-            System.out.println("\nDetalhes do funcionário " + funcionario.getNome() + " após a alteração dos dados:");
-            System.out.println(funcionarioService.obterFuncionario(id));
-        } else {
-            System.out.println("Funcionário com ID " + id + " não encontrado.");
-        }
+    private static void atualizarDadosFuncionario(Integer id , Funcionario dadosFuncionario) {
+        funcionarioService.atualizarFuncionario(id, dadosFuncionario);
+        System.out.println("\nDetalhes do funcionário após a atualização dos dados:");
+        System.out.println(funcionarioService.obterFuncionario(id));
     }
 
 

@@ -23,9 +23,17 @@ public class FuncionarioService implements IFuncionarioService {
         return funcionario.getId();
     }
 
-    public void atualizarFuncionario(int id, Funcionario novoFuncionario) {
-        if (funcionarios.containsKey(id)) {
-            funcionarios.put(id, novoFuncionario);
+    public void atualizarFuncionario(int id, Funcionario dadosFuncionario) {
+        Funcionario funcionario = funcionarios.get(id);
+
+        if (funcionario != null) {
+            // Atualizar os atributos do funcionário
+            funcionario.setNome(dadosFuncionario.getNome());
+            funcionario.setDesignacao(dadosFuncionario.getDesignacao());
+            funcionario.setSalario(dadosFuncionario.getSalario());
+            funcionario.setNumeroTelefone(dadosFuncionario.getNumeroTelefone());
+            funcionario.setEndereco(dadosFuncionario.getEndereco());
+
         } else {
             System.out.println("Funcionário com ID " + id + " não encontrado.");
         }

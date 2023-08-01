@@ -48,7 +48,7 @@ public static void main(String[] args) {
         Endereco enderecoNovo = new Endereco(3, "Rua novo", "123", "Bairro X", "Cidade Y", "Estado Z", "12345-678");
         funcionario2.setNome("Maria Francisca");
         funcionario2.setEndereco(enderecoNovo);
-        alterarDadosFuncionario(2,funcionario2);
+        atualizarDadosFuncionario(2, funcionario2);
 
         excluirFuncionario(2);
 
